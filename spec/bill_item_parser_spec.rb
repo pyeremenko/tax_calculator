@@ -6,20 +6,20 @@ describe BillItemParser do
 
   describe '#parse' do
     it 'parses amount of goods in a line' do
-      expect(BillItemParser.parse(SIMPLE_INPUT)).to include(amount: 3)
+      expect(BillItemParser.parse(SIMPLE_INPUT)).to have_attributes(amount: 3)
     end
 
     it 'parses title of a line' do
-      expect(BillItemParser.parse(SIMPLE_INPUT)).to include(title: 'boxes of chocolates')
+      expect(BillItemParser.parse(SIMPLE_INPUT)).to have_attributes(title: 'boxes of chocolates')
     end
 
     it 'parses price of a good' do
-      expect(BillItemParser.parse(SIMPLE_INPUT)).to include(price: 11.25)
+      expect(BillItemParser.parse(SIMPLE_INPUT)).to have_attributes(price: 11.25)
     end
 
     it 'parses imported flag of a line' do
-      expect(BillItemParser.parse(SIMPLE_INPUT)).to include(imported: false)
-      expect(BillItemParser.parse(SIMPLE_IMPORTED_INPUT)).to include(imported: true)
+      expect(BillItemParser.parse(SIMPLE_INPUT)).to have_attributes(imported: false)
+      expect(BillItemParser.parse(SIMPLE_IMPORTED_INPUT)).to have_attributes(imported: true)
     end
   end
 end
